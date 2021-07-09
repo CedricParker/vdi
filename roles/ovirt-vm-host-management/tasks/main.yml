@@ -1,0 +1,4 @@
+---
+- name: Creating Vm from template
+  import_tasks: create-vm-from-template.yml
+

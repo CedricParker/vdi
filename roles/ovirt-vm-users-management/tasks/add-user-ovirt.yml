@@ -1,0 +1,9 @@
+---
+- name: Adding users to ovirt environment  
+  ovirt_user:
+    auth: "{{ ovirt_auth }}"
+    domain: FREEIPA-authz
+    state: present
+    name: "{{ item }}" 
+  with_items: "{{ username }}"
+

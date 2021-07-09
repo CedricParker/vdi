@@ -1,0 +1,25 @@
+---
+- hosts: ovirt-manager
+  remote_user: root
+  
+  pre_tasks:
+  - name: Login to Ovirt engine
+    ovirt_auth:
+      url: "{{ engine_url}}"
+      username: "{{ engine_user}}"
+      password: "{{ engine_password }}"
+      ca_file: "{{ engine_cafile | default(omit) }}"
+      insecure: "{{ engine_insecure | default(true)}}"
+    tags:
+      - always
+
+  roles:
+    - ovirt-vm-host-management 
+
+  post_tasks:
+    - name: logout from Ovirt
+      ovirt_auth:
+        state: absent
+        ovirt_auth: "{{ ovirt_auth}}"
+      tags:
+        - alwaysov

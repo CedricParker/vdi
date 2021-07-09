@@ -1,0 +1,7 @@
+---
+- hosts: IPA
+  remote_user: root
+  roles:
+    - ipa-user-management 
+  ignore_errors: True
+

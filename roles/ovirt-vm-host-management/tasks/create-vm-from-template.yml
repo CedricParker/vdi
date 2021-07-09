@@ -1,0 +1,10 @@
+---
+  - name: create virtual-workstation from template 
+    ovirt_vm:
+      auth: "{{ ovirt_auth }}"
+      cluster: "{{ cluster_name }}"
+      name: "{{ item }}" 
+      state: running
+      template: centos7-workstation
+    with_items: "{{ hostname }}"
+

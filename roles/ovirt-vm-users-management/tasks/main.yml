@@ -1,0 +1,7 @@
+---
+- name: adding IPA users to ovirt engine
+  import_tasks: add-user-ovirt.yml
+
+- name: adding user permission to vm 
+  import_tasks: add-permission-vm.yml
+

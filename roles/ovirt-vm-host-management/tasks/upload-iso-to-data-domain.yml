@@ -1,0 +1,43 @@
+---
+- hosts: ovirt-manager
+  user: root
+  become: true
+  vars_files:
+    - engine_vars.yml
+    - passwords.yml
+
+  pre_tasks:
+    - name: Login to Ovirt engine
+      ovirt_auth:
+        url: "{{ engine_url}}"
+        username: "{{ engine_user}}"
+        password: "{{ engine_password }}"
+        ca_file: "{{ engine_cafile | default(omit) }}"
+        insecure: "{{ engine_insecure | default(true)}}"
+      tags:
+        - always
+
+  vars:
+    data_center_name: Lab-Datacenter
+    cluster_name: Lab-Cluster
+    cluster_description: ASC laptop cluster
+
+  tasks:
+    - name: Adding Centos-8 iso to disks
+      ovirt_disk:
+        auth: "{{ ovirt_auth }}"
+        name: Centos-8
+        upload_image_path: /iso/CentOS-8.1.1911-x86_64-dvd1.iso
+        storage_domain: data_nfs
+        size: 8 GiB
+        wait: true
+        bootable: true
+        format: raw
+        content_type: iso
+  post_tasks:
+    - name: logout from Ovirt
+      ovirt_auth:
+        state: absent
+        ovirt_auth: "{{ ovirt_auth}}"
+      tags:
+        - alwaysov

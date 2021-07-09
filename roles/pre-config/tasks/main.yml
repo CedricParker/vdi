@@ -1,0 +1,7 @@
+---
+#- name: creating username variables from username.csv
+#  import_tasks: create-username-file.yml
+
+- name: creating ovirt-usernames.yml
+  import_tasks: copy-usernamefile.yml
+

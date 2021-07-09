@@ -1,0 +1,7 @@
+---
+- name: creating ovirt-usernames
+  copy:
+    src: ~/asc-git/vdi/group_vars/IPA/names.yml
+    dest: ~/asc-git/vdi/group_vars/ovirt-manager/ovirt-usernames.yml
+
+

@@ -1,0 +1,13 @@
+---
+- name: Updating username variables
+  import_playbook: preconfig.yml
+
+- name: Creating VMS
+  import_playbook: create-vms-from-template.yml
+
+- name: IPA user management
+  import_playbook: create-ipa-users.yml
+
+- name: IPA to Ovirt user integration
+  import_playbook: add-ipa-users-to-ovirt.yml
+

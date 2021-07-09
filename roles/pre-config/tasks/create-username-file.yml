@@ -1,0 +1,3 @@
+---
+- name: parse CSV and make vars file for ipa_user_creae.yml
+  command: "python /run/media/c.parker/blue/vdi/roles/pre-config/tasks/csv-handler.py /run/media/c.parker/blue/vdi/usernames.csv"

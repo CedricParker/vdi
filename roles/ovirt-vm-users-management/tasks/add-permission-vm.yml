@@ -1,0 +1,10 @@
+---
+- name: adding user "{{ username }}"  permision to vm "{{ vmname }}" 
+  ovirt_permission:
+    auth: "{{ ovirt_auth }}"
+    authz_name: FREEIPA-authz
+    state: present
+    user_name: "{{ username }}" 
+    object_type: vm
+    object_name: "{{ item }}"
+  with_items: "{{ hostname }}"

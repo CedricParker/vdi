@@ -1,0 +1,6 @@
+engine_url: https://master.lab.local/ovirt-engine/api
+engine_user: admin@internal
+Engine_cafile: /etc/pki/ovirt-engine/ca.pem
+data_center_name: Lab-Datacenter
+cluster_name: Lab-Cluster
+cluster_description: ASC laptop cluster

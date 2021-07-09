@@ -1,0 +1,8 @@
+---
+usernames:
+  - { user: 'Jim.Holden', fname: 'Jim', lname: 'Holden'}
+  - { user: 'Alex.Kamal', fname: 'Alex', lname: 'Kamal'}
+  - { user: 'Naomi.Nagata', fname: 'Naomi', lname: 'Nagata'}
+  - { user: 'Amos.Burton', fname: 'Amos', lname: 'Burton'}
+  - { user: 'Joe.Miller', fname: 'Joe', lname: 'Miller'}
+  - { user: 'Roberta.Draper', fname: 'Roberta', lname: 'Draper'}
